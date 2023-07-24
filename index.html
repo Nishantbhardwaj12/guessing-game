@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="container">
+        <h1>Welcome to Guessing Game</h1>
+        <input type="text" placeholder="Enter your Name" value="" id="name">
+        <button onclick="getdata()">Submit</button>
+        <h3>Process:</h3>
+        <ul>
+            <li>Firstly submit your name.</li>
+            <li>Choose a maxmimum number in between you want to guees a random number.</li>
+            <li>Try to  guees a random number.</li>
+            <li>when you guess a correct number then alert automatically closed.</li>
+        </ul>
+        
+    
+    </div>
+    <script>
+        function getdata() {
+            var data = document.getElementById("name").value;
+            const max = prompt("Enter the maximum number");
+            const random = Math.floor(Math.random()*max)+1;
+            let guess = prompt("guess the number");
+            while(true){
+                if(guess == "quit"){
+                    guess = prompt("user quit the game");
+                    break;
+                }
+                else if(guess == random){
+                    guess = prompt("you are right");
+                    break;
+                }
+                else if(guess < random){
+                    guess = prompt("which number you entered this is smaller then the random number, please try again!");
+                    break;
+                }
+                else{
+                    guess = prompt("which number you entered this is larger compare to random number, please try again!")
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
